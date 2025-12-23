@@ -1,1 +1,35 @@
-Here u can see my categories routes and models
+START
+  ↓
+┌─────────────────┐
+│ Student/Admin   │
+│ opens app       │
+└─────────┬───────┘
+          ↓
+┌─────────────────┐
+│ 1. Browse All   │ ← GET /api/categories
+│ Categories      │    (Java, C, C++, etc.)
+└─────────┬───────┘
+          ↓
+    ┌──────┴──────┐
+    │             │
+ ┌──▼──┐       ┌──▼──┐
+ │ 2a. │       │ 2b. │
+ │View │       │Admin│
+ │One  │       │Adds │
+ │Cat. │  No   │New  │ ← POST /api/categories
+ │     │──────▶│Cat. │
+ └────┼──┐    └────┼──┐
+      ↓   │         ↓   │
+ ┌────┴──┐│    ┌────┴──┐│
+ │Student││    │Update ││ ← PUT /api/categories/:id
+ │Picks  ││    │Details││
+ │Course ││    └────┼──┘│
+ └───────┘│         ↓   │
+          │    ┌────┼──┐│
+          │    │Delete│││ ← DELETE /api/categories/:id
+          │    │Category│
+          │    └────┘ │
+          │           ↓
+          └───────────┘
+                    ↓
+              END
