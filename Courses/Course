@@ -1,1 +1,42 @@
-Here you can see my Course routes and models
+START
+  ↓
+┌─────────────────┐
+│ Student opens   │
+│ Courses section │
+└─────────┬───────┘
+          ↓
+┌─────────────────┐
+│ 1. Browse All   │ ← GET /api/courses
+│ Courses         │    (Java Basics, C++ Advanced, etc.)
+└─────────┬───────┘
+          ↓
+    ┌──────┴──────┐
+    │             │
+ ┌──▼──┐       ┌──▼──┐
+ │ 2a. │       │ 2b. │
+ │Filter│       │Admin│
+ │by Cat│  No   │Adds │ ← POST /api/courses
+ │(Java)│──────▶│New  │
+ └────┼──┐    └────┼──┐
+      ↓   │         ↓   │
+ ┌────┴──┐│    ┌────┴──┐│
+ │ 3. View││    │Update ││ ← PUT /api/courses/:id
+ │Course ││    │Course ││
+ │Details││    │Details││
+ └────┼──┘│    └────┼──┘│
+      ↓   │         ↓   │
+ ┌────┼──┐│    ┌────┼──┐│
+ │ 4. Student    │    │ 5. Admin││
+ │ Selects &     │    │ Deletes ││ ← DELETE /api/courses/:id
+ │ Enrolls Course│    │ Course  │
+ └────┼──┘│    └────┘ │
+      ↓   │           ↓
+      │   └───────────┘
+      ↓
+ ┌────┴──┐
+ │Student│
+ │Starts │
+ │Learning│
+ └───────┘
+    ↓
+  END
