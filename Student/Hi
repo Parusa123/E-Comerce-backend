@@ -1,1 +1,49 @@
-hey there here u can check my websites student models and routes!!
+START
+  ↓
+┌─────────────────┐
+│ Student logs in │
+└─────────┬───────┘
+          ↓
+┌─────────────────┐
+│ 1. View Profile │ ← GET /api/students/:id
+│ (Progress,      │
+│  Enrolled Courses)
+└─────────┬───────┘
+          ↓
+    ┌──────┴──────┐
+    │             │
+ ┌──▼──┐       ┌──▼──┐
+ │ 2a. │       │ 2b. │
+ │Complete│     │Admin│
+ │Course  │  No │Views│ ← GET /api/students
+ └────┼──┐    │All  │
+      ↓   │    │Students
+ ┌────┴──┐│    └────┼──┘
+ │ 3. Drop││         ↓
+ │Review  ││    ┌────┼──┐
+ │& Rating││    │Update│ ← PUT /api/students/:id
+ └────┼──┘│    │Student│
+      ↓   │    │Details│
+ ┌────┼──┐│    └────┼──┘
+ │ 4. Select││         ↓
+ │Next Course││    ┌────┼──┐
+ └────┼──┘│    │Delete │ ← DELETE /api/students/:id
+      ↓   │    │Student│
+      │   │    └────┘
+      ↓   │
+ ┌────┴──┐│
+ │Update ││
+ │Profile││ ← PUT /api/students/:id
+ └────┼──┘│
+      ↓   │
+ ┌────┴──┐│
+ │ 5. Track││
+ │Progress ││
+ └───────┘│
+          ↓
+ ┌─────────┐│
+ │Continue ││
+ │Learning ││
+ └─────────┘│
+    ↓
+  END
