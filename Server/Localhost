@@ -1,1 +1,54 @@
+START
+  ↓
+┌─────────────────┐
+│ Developer runs  │
+│ npm start       │
+└─────────┬───────┘
+          ↓
+┌─────────────────┐
+│ Server starts   │
+│ localhost:5000  │
+│ (Express + Mongo│
+│  DB connected)  │
+└─────────┬───────┘
+          ↓
+┌─────────────────┐
+│ 1. Test Health  │ ← GET http://localhost:5000/
+│ Check           │    ("Server running!")
+└─────────┬───────┘
+          ↓
+    ┌──────┴──────┐
+    │             │
+ ┌──▼──┐       ┌──▼──┐
+ │ 2a. │       │ 2b. │
+ │Categories│   │Courses│
+ │Route     │   │Route  │
+ │localhost:│←─▶│localh│ ← GET /api/courses
+ │5000/api/ │   │ost:5 │
+ │categori  │   │000/a │
+ │es        │   │pi/co │
+ └────┼──┐   └────┼──┘
+      ↓   │        ↓
+ ┌────┴──┐│   ┌────┴──┐
+ │Students││   │Student│
+ │Route   ││   │Enrolls│
+ │localho ││   │& Learns│
+ │st:5000 ││   └───────┘
+ │/api/st ││
+ │udents  ││
+ └────┼──┘│
+      ↓   │
+ ┌────┴──┐│
+ │ 3. All ││
+ │Routes  ││
+ │Working ││
+ └───────┘│
+          ↓
+ ┌─────────────────┐
+ │ 4. Frontend     │
+ │ Connects        │
+ │ (React app)     │
+ └─────────────────┘
+    ↓
+  END (Server Running)
 
