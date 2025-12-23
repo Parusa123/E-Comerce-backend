@@ -1,0 +1,86 @@
+START
+  ↓
+┌─────────────────┐
+│ Developer runs  │
+│ npm start       │
+│ localhost:5000  │
+└─────────┬───────┘
+          ↓
+┌─────────────────┐
+│ SERVER LIVE!    │ ← GET http://localhost:5000/
+│ All DB Connected│
+└─────────┬───────┘
+          ↓
+┌─────────────────┐
+│ STUDENT LOGS IN │
+└─────────┬───────┘
+          ↓
+    ┌──────┴──────┐
+    │             │
+ ┌──▼──┐       ┌──▼──┐
+ │ 1. CATEGORIES │   │ A. ADMIN PANEL│
+ │ Browse All    │   │ Add/Update   │
+ │ (Java,C,C++)  │   │ Categories   │ ← POST/PUT/DEL /api/categories
+ │ localhost:5000│   │ Courses      │
+ │ /api/categories│  └────┼──┐
+ └────┼──┐       │      ↓   │
+      ↓   │      │ ┌────┼──┘
+ ┌────┴──┐│      │ │Update│
+ │ 2. Pick││      │ │Student│ ← PUT /api/students/:id
+ │Category││      │ │Details│
+ │ (Java) ││      └────┘
+ └────┼──┘│
+      ↓   │
+ ┌────┴──┐│
+ │ 3. COURSES   │
+ │ Filter by Cat│ ← GET /api/courses?category=java
+ │ View Details │
+ └────┼──┘│
+      ↓   │
+ ┌────┴──┐│
+ │ 4. SELECT   │
+ │ & ENROLL    │ ← POST /api/students/:id/enroll
+ │ Course      │
+ └────┼──┘│
+      ↓   │
+ ┌────┴──┐│
+ │ 5. STUDENT  │
+ │ DASHBOARD   │ ← GET /api/students/:id
+ │ Track Progress│
+ └────┼──┘│
+      ↓   │
+ ┌────┴──┐│
+ │ 6. COMPLETE │
+ │ COURSE      │
+ └────┼──┘│
+      ↓   │
+ ┌────┴──┐│
+ │ 7. DROP     │
+ │ REVIEW      │ ← POST /api/courses/:id/review
+ │ & RATING    │
+ └────┼──┘│
+      ↓   │
+ ┌────┴──┐│
+ │ 8. SELECT   │
+ │ NEXT COURSE │
+ └───────┘│
+      ↓   │
+ ┌─────────┐│
+ │ CONTINUE││
+ │ LEARNING││
+ └─────────┘│
+    ↓   │
+    └───┘
+   END
+
+
+
+| Route               | Method         | Purpose               |
+| ------------------- | -------------- | --------------------- |
+| /                   | GET            | Server Health Check   |
+| /api/categories     | GET/POST       | Browse/Add Categories |
+| /api/categories/:id | GET/PUT/DELETE | Category Details      |
+| /api/courses        | GET/POST       | All/Filter Courses    |
+| /api/courses/:id    | GET/PUT/DELETE | Course Details        |
+| /api/students       | GET            | All Students (Admin)  |
+| /api/students/:id   | GET/PUT/DELETE | Student Profile       |
